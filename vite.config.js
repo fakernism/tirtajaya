@@ -8,9 +8,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'MyLanding',
-        short_name: 'MyLanding',
-        description: 'Landing page modern dengan React dan Tailwind',
+        name: 'Perumdam Tirya Jaya',
+        short_name: 'Pamekasan',
+        description: 'Perumdam Tirta Jaya Kabupaten Pamekasan',
         theme_color: '#0ea5e9', // Tailwind blue-500
         background_color: '#ffffff',
         display: 'standalone',
