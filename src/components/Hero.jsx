@@ -1,8 +1,15 @@
 // src/components/Hero.jsx
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <motion.section
       className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
@@ -36,14 +43,15 @@ export default function Hero() {
           "Bersama Menjaga Sumber Daya Air, Membangun Masa Depan."
         </motion.p>
 
-        <motion.button
-          className="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          Get Started
-        </motion.button>
+          <motion.button
+            onClick={handleClick}
+            className="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            Kontak Kami
+          </motion.button>
       </div>
     </motion.section>
   );
