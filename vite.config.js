@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: {
         name: 'Perumdam Tirya Jaya',
-        short_name: 'Pamekasan',
+        short_name: 'Tirta Jaya',
         description: 'Perumdam Tirta Jaya Kabupaten Pamekasan',
         theme_color: '#0ea5e9', // Tailwind blue-500
         background_color: '#ffffff',
