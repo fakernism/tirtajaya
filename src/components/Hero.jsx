@@ -24,7 +24,7 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          Welcome to Our Website
+          Perumdam Tirta Jaya Kabupaten Pamekasan
         </motion.h1>
 
         <motion.p
@@ -33,7 +33,7 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Building the future together with innovation and collaboration.
+          "Bersama Menjaga Sumber Daya Air, Membangun Masa Depan."
         </motion.p>
 
         <motion.button

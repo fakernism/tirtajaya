@@ -19,7 +19,7 @@ export default function About() {
     </Helmet>
 
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">About Us</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Tentang Kami</h2>
         <p className="text-center text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
           We are a passionate team dedicated to bringing innovative solutions and driving success for our clients. Our focus is on collaboration, integrity, and delivering excellence.
         </p>

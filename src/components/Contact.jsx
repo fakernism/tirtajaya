@@ -19,7 +19,7 @@ export default function Contact() {
     </Helmet>
 
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Contact Us</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Kontak Kami</h2>
           <form className="max-w-2xl mx-auto space-y-6">
             <input type="text" placeholder="Name" className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white" />
             <input type="email" placeholder="Email" className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white" />

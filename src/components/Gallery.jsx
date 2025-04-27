@@ -33,7 +33,7 @@ export default function Gallery() {
     </Helmet>
 
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Gallery</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">Galeri Foto</h2>
         <PhotoProvider>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {photos.map((src, index) => (

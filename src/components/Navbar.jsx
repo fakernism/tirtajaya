@@ -48,7 +48,8 @@ export default function Navbar() {
   return (
     <nav className="flex items-center justify-between shadow-md bg-white dark:bg-gray-900 w-full z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white">MyLanding</Link>
+      
+        <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white">Tirta Jaya</Link>
 
         <div className="hidden md:flex space-x-6">
           <NavLinks />
@@ -73,11 +74,11 @@ export default function Navbar() {
 function NavLinks({ toggleMenu }) {
   const links = [
     { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' },
-    { to: '/vision-mission', label: 'Vision & Mission' },
-    { to: '/structure', label: 'Structure' },
-    { to: '/gallery', label: 'Gallery' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/about', label: 'Tentang Kami' },
+    { to: '/vision-mission', label: 'Visi dan Misi' },
+    { to: '/structure', label: 'Struktur' },
+    { to: '/gallery', label: 'Galeri' },
+    { to: '/contact', label: 'Kontak Kami' },
   ];
 
   return (
