@@ -1,8 +1,44 @@
 // src/components/Contact.jsx
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validasi sederhana
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Mohon lengkapi semua field!');
+      return;
+    }
+
+    // Nanti kirim ke server atau email service di sini
+    console.log('Form submitted:', formData);
+
+    alert('Pesan Anda berhasil dikirim! 🎉');
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+    });
+  };
+
   return (
     <motion.section
       id="contact"
@@ -27,13 +63,16 @@ export default function Contact() {
           Kontak Kami
         </motion.h2>
 
-        <form className="max-w-2xl mx-auto space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition-transform hover:scale-105 duration-300">
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-8 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition-transform hover:scale-105 duration-300">
           
           <div>
             <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Nama Lengkap</label>
             <input
               type="text"
+              name="name"
               placeholder="Nama Anda"
+              value={formData.name}
+              onChange={handleChange}
               required
               className="w-full p-4 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300"
             />
@@ -43,7 +82,10 @@ export default function Contact() {
             <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
             <input
               type="email"
+              name="email"
               placeholder="Alamat Email"
+              value={formData.email}
+              onChange={handleChange}
               required
               className="w-full p-4 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300"
             />
@@ -52,8 +94,11 @@ export default function Contact() {
           <div>
             <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Pesan</label>
             <textarea
+              name="message"
               placeholder="Tulis pesan Anda..."
               rows="5"
+              value={formData.message}
+              onChange={handleChange}
               required
               className="w-full p-4 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300"
             ></textarea>

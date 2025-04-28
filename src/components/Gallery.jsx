@@ -1,15 +1,15 @@
-// src/components/Gallery.jsx
-import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { motion } from 'framer-motion';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const photos = [
-  'https://picsum.photos/500/?random=1',
-  'https://picsum.photos/500/?random=2',
-  'https://picsum.photos/500/?random=3',
-  'https://picsum.photos/500/?random=4',
-  'https://picsum.photos/500/?random=5',
-  'https://picsum.photos/500/?random=6',
+  { src: 'https://picsum.photos/500/300?random=1', label: 'Instalasi Air' },
+  { src: 'https://picsum.photos/500/300?random=2', label: 'Pengecekan Pipa' },
+  { src: 'https://picsum.photos/500/300?random=3', label: 'Distribusi Air Bersih' },
+  { src: 'https://picsum.photos/500/300?random=4', label: 'Kantor Pusat' },
+  { src: 'https://picsum.photos/500/300?random=5', label: 'Layanan Pelanggan' },
+  { src: 'https://picsum.photos/500/300?random=6', label: 'Teknisi di Lapangan' },
 ];
 
 export default function Gallery() {
@@ -24,7 +24,7 @@ export default function Gallery() {
     >
       <Helmet>
         <title>Galeri Foto - Perumdam Tirta Jaya Kabupaten Pamekasan</title>
-        <meta name="description" content="Galeri Foto Perumdam Tirta Jaya Kabupaten Pamekasan - Pelayanan adalah motivasi kami untuk terus maju dan berubah." />
+        <meta name="description" content="Galeri Foto Perumdam Tirta Jaya Kabupaten Pamekasan" />
       </Helmet>
 
       <div className="container mx-auto px-6 pt-10">
@@ -39,7 +39,7 @@ export default function Gallery() {
 
         <PhotoProvider>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {photos.map((src, index) => (
+            {photos.map((photo, index) => (
               <motion.div
                 key={index}
                 className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-500 group"
@@ -47,16 +47,17 @@ export default function Gallery() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.8 }}
               >
-                <PhotoView src={src}>
+                <PhotoView src={photo.src}>
                   <img
-                    src={src}
-                    alt={`Gallery ${index}`}
-                    className="object-cover w-full h-64 sm:h-72 md:h-80 transition-transform duration-500 group-hover:scale-110 rounded-2xl"
+                    src={photo.src}
+                    alt={photo.label}
+                    className="object-cover w-full h-64 sm:h-72 md:h-80 transition-transform duration-500 group-hover:scale-110 rounded-2xl cursor-pointer"
                   />
                 </PhotoView>
 
-                {/* Glowing effect */}
-                <div className="absolute inset-0 bg-blue-400/10 dark:bg-blue-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-center py-2 text-sm font-medium rounded-b-2xl">
+                  {photo.label}
+                </div>
               </motion.div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 // src/components/BackToTop.jsx
 import { useState, useEffect } from 'react';
+import { HiArrowUp } from 'react-icons/hi'; // ⬅️ Import icon panah
 
 export default function BackToTop() {
   const [showButton, setShowButton] = useState(false);
@@ -27,7 +28,7 @@ export default function BackToTop() {
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 p-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg transition"
       >
-        ⬆️
+        <HiArrowUp className="h-6 w-6" /> {/* ⬅️ Ganti emoji jadi icon putih */}
       </button>
     )
   );
