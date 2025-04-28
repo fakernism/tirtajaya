@@ -10,12 +10,15 @@
   "dependencies": {
     "@vitejs/plugin-react": "^4.4.1",
     "framer-motion": "^10.18.0",
+    "lucide-react": "^0.503.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-photo-view": "^1.2.7",
     "react-router-dom": "^7.5.2",
     "react-scroll": "^1.8.7",
+    "react-type-animation": "^3.2.0",
+    "swiper": "^11.2.6",
     "vite-plugin-pwa": "^1.0.0"
   },
   "devDependencies": {

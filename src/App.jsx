@@ -49,9 +49,11 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
+      <div className="flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen">
         <Navbar />
-        <AnimatedRoutes />
+        <main className="flex-grow">
+          <AnimatedRoutes />
+        </main>
         <Footer />
         <BackToTop />
       </div>
