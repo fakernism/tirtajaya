@@ -16,7 +16,7 @@ export default function Structure() {
   return (
     <motion.section
       id="structure"
-      className="py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden"
+      className="py-16 bg-gradient-to-b from-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -81,7 +81,7 @@ export default function Structure() {
             {team.map((member, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:ring-4 hover:ring-blue-300 dark:hover:ring-blue-500 relative"
+                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center transform  relative"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.2, duration: 0.8 }}

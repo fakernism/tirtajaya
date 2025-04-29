@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
+import FAQ from './components/FAQ';
 
 
 function AnimatedRoutes() {
@@ -28,6 +29,7 @@ function AnimatedRoutes() {
         <Route path="/structure" element={<Structure />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

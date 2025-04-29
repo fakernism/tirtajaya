@@ -16,7 +16,7 @@ export default function Hero() {
 
   return (
     <motion.section
-      className="relative flex flex-col items-center justify-center overflow-hidden min-h-screen bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800"
+      className="relative flex flex-col items-center justify-center overflow-hidden min-h-screen bg-gradient-to-b from-white dark:from-gray-900 dark:to-gray-800"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -83,7 +83,7 @@ export default function Hero() {
           whileTap={{ scale: 0.95 }}
           className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white rounded-full shadow-xl transition-all duration-300 text-lg font-semibold"
         >
-          Hubungi Kami Sekarang
+          Hubungi Kami
         </motion.button>
       </motion.div>
     </motion.section>

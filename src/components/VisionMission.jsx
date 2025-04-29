@@ -6,7 +6,7 @@ export default function VisionMission() {
   return (
     <motion.section 
       id="vision" 
-      className="py-16 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800"
+      className="py-16 bg-gradient-to-b from-white dark:from-gray-900 dark:to-gray-800"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
