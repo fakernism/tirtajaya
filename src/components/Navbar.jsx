@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import logo from '../assets/perumdamlogo.png';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
@@ -30,9 +30,8 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Logo" className="h-10 w-10 object-cover" />
-          <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-            Tirta Jaya
+          <Link to="/">
+            <img src={logo} alt="Logo Perumdam Tirta Jaya" className="h-12 object-contain" />
           </Link>
         </div>
 
@@ -77,7 +76,7 @@ export default function Navbar() {
 function NavLinks() {
   const location = useLocation();
   const links = [
-    { to: '/', label: 'Home' },
+    { to: '/', label: 'Beranda' },
     { to: '/about', label: 'Tentang Kami' },
     { to: '/vision-mission', label: 'Visi dan Misi' },
     { to: '/structure', label: 'Struktur Organisasi' },
@@ -100,7 +99,7 @@ function NavLinks() {
             }`}
           >
             {link.label}
-            <span className={`block h-0.5 bg-blue-500 max-w-0 group-hover:max-w-full transition-all duration-300 ${isActive ? 'max-w-full' : ''}`}></span>
+            {/* <span className={`block h-0.5 bg-blue-500 max-w-0 group-hover:max-w-full transition-all duration-300 no-underline ${isActive ? 'max-w-full' : ''}`}></span> */}
           </Link>
         );
       })}

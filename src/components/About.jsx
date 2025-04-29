@@ -1,7 +1,7 @@
 // src/components/About.jsx
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa'; // ⬅️ Update import
+import { FaFacebookF, FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 
 export default function About() {
   return (
@@ -32,49 +32,57 @@ export default function About() {
         </motion.h2>
 
         <motion.div
-          className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition max-w-4xl mx-auto"
+          className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition max-w-4xl mx-auto"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-center mb-8">
+          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-center mb-6">
             Kami adalah tim yang berdedikasi untuk menyediakan solusi inovatif dalam pelayanan air bersih,
             berorientasi pada integritas, kolaborasi, dan keunggulan layanan untuk masyarakat Pamekasan dan sekitarnya.
           </p>
 
-          {/* Social Media Links */}
-          <div className="flex justify-center space-x-6">
+
+          {/* Social Media with Labels */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center text-center">
             <a
               href="https://www.facebook.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition text-2xl"
+              className="flex flex-col items-center space-y-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
             >
-              <FaFacebookF />
+              <FaFacebookF size={28} />
+              <span className="text-sm font-medium">Facebook</span>
             </a>
+
             <a
               href="https://www.instagram.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition text-2xl"
+              className="flex flex-col items-center space-y-2 text-gray-600 dark:text-gray-300 hover:text-pink-500 transition"
             >
-              <FaInstagram />
+              <FaInstagram size={28} />
+              <span className="text-sm font-medium">Instagram</span>
             </a>
+
             <a
-              href="https://wa.me/yourwhatsapplink" // ⬅️ Link WhatsApp
+              href="https://wa.me/yourwhatsapplink"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-green-500 transition text-2xl"
+              className="flex flex-col items-center space-y-2 text-gray-600 dark:text-gray-300 hover:text-green-500 transition"
             >
-              <FaWhatsapp />
+              <FaWhatsapp size={28} />
+              <span className="text-sm font-medium">WhatsApp</span>
             </a>
+
             <a
               href="https://www.youtube.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-red-500 transition text-2xl"
+              className="flex flex-col items-center space-y-2 text-gray-600 dark:text-gray-300 hover:text-red-500 transition"
             >
-              <FaYoutube />
+              <FaYoutube size={28} />
+              <span className="text-sm font-medium">YouTube</span>
             </a>
           </div>
         </motion.div>

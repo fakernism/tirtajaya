@@ -23,7 +23,7 @@ export default function Hero() {
       transition={{ duration: 0.5 }}
     >
       <Helmet>
-        <title>Selamat Datang - Perumdam Tirta Jaya Kabupaten Pamekasan</title>
+        <title>Perusahaan Umum Daerah Air Minum Tirta Jaya Kabupaten Pamekasan</title>
       </Helmet>
 
       {/* SLIDER Background */}
