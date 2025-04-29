@@ -10,7 +10,7 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    setOpen(false); // Tutup menu saat berpindah halaman
+    setOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -26,19 +26,22 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full z-50 bg-white dark:bg-gray-900 shadow-md transition-all">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-3 relative flex items-center justify-between">
 
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
+        {/* Mobile Left Spacer */}
+        <div className="w-8 md:hidden"></div>
+
+        {/* Logo Centered */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 md:static md:translate-x-0">
           <Link to="/">
             <img src={logo} alt="Logo Perumdam Tirta Jaya" className="h-12 object-contain" />
           </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        {/* Desktop Nav & Dark Mode */}
+        <div className="hidden md:flex items-center space-x-8 ml-auto">
           <NavLinks />
-          <button 
+          <button
             onClick={toggleDarkMode}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
@@ -46,14 +49,8 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Button */}
-        <div className="md:hidden flex items-center space-x-3">
-          <button 
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-          >
-            {darkMode ? <Sun size={24} /> : <Moon size={24} />}
-          </button>
+        {/* Mobile Hamburger (Right) */}
+        <div className="md:hidden">
           <button
             onClick={toggleMenu}
             className="text-gray-900 dark:text-white focus:outline-none"
@@ -72,6 +69,7 @@ export default function Navbar() {
     </nav>
   );
 }
+
 
 function NavLinks() {
   const location = useLocation();
