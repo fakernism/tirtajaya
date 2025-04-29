@@ -1,16 +1,33 @@
 import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { useGesture } from '@use-gesture/react';
 import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
-import logo from "../assets/struktur.png"
+import logo from "../assets/struktur.png";
 
 export default function Structure() {
-  const [zoom, setZoom] = useState(1);
   const constraintsRef = useRef(null);
+  const scale = useMotionValue(1);
+  const [zoom, setZoom] = useState(1);
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.2, 2));
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.2, 0.6));
   const handleReset = () => setZoom(1);
+
+  // Gesture: pinch zoom
+  useGesture(
+    {
+      onPinch: ({ offset: [d] }) => {
+        const newZoom = Math.min(Math.max(0.6, d / 100 + 1), 2); // scale between 0.6 and 2
+        setZoom(newZoom);
+      },
+    },
+    {
+      target: constraintsRef,
+      eventOptions: { passive: false },
+      pinch: { scaleBounds: { min: 0.6, max: 2 }, rubberband: true },
+    }
+  );
 
   return (
     <motion.section
@@ -27,16 +44,11 @@ export default function Structure() {
       </Helmet>
 
       <div className="container mx-auto px-6">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-10 pt-10 text-gray-900 dark:text-white"
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
+        <h2 className="text-3xl font-bold text-center mb-10 pt-10 text-gray-900 dark:text-white">
           Struktur Organisasi
-        </motion.h2>
+        </h2>
 
-        {/* Tombol Kontrol Zoom */}
+        {/* Tombol Zoom */}
         <div className="flex justify-center gap-4 mb-6 flex-wrap">
           <button
             onClick={handleZoomOut}
@@ -58,10 +70,10 @@ export default function Structure() {
           </button>
         </div>
 
-        {/* Gambar Drag + Zoom */}
+        {/* Kontainer Gambar */}
         <div
           ref={constraintsRef}
-          className="relative w-full h-[500px] md:h-[700px] overflow-hidden border border-gray-300 dark:border-gray-700 rounded-lg"
+          className="relative w-full h-[300px] sm:h-[500px] md:h-[700px] overflow-hidden border border-gray-300 dark:border-gray-700 rounded-lg touch-none"
         >
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <motion.div
@@ -70,13 +82,13 @@ export default function Structure() {
               dragElastic={0.2}
               animate={{ scale: zoom }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="cursor-grab active:cursor-grabbing w-max h-max"
+              className="cursor-grab active:cursor-grabbing max-w-full"
               style={{ transformOrigin: 'center center' }}
             >
               <img
                 src={logo}
                 alt="Struktur Organisasi"
-                className="select-none pointer-events-none"
+                className="max-w-[90vw] sm:max-w-[80vw] h-auto object-contain select-none pointer-events-none"
                 draggable={false}
               />
             </motion.div>
