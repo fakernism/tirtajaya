@@ -29,14 +29,14 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex flex-wrap justify-center space-x-6 mb-6 text-sm font-medium">
-          <a href="#" className="hover:text-blue-500 transition">Privacy Policy</a>
-          <a href="#" className="hover:text-blue-500 transition">Terms of Service</a>
-          <a href="#" className="hover:text-blue-500 transition">Contact</a>
+          <a href="#" className="hover:text-blue-500 transition">Kebijakan Privasi</a>
+          <a href="#" className="hover:text-blue-500 transition">FAQ</a>
+          <a href="#" className="hover:text-blue-500 transition">Kontak Kami</a>
         </div>
 
         {/* Copyright */}
         <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-          &copy; {new Date().getFullYear()} <span className="font-semibold">Perumdam Tirta Jaya Kabupaten Pamekasan</span>. All rights reserved.
+          &copy; {new Date().getFullYear()} <span className="font-semibold">Perumdam Tirta Jaya Kabupaten Pamekasan</span>.
         </p>
       </div>
     </motion.footer>
