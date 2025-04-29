@@ -23,7 +23,7 @@ export default function About() {
 
       <div className="container mx-auto px-6 pt-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12"
+          className="text-3xl font-bold text-center mb-10 pt-10 text-gray-900 dark:text-white"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}

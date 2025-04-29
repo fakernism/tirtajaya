@@ -1,22 +1,21 @@
-// src/components/Structure.jsx
+import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-
-const leader = { name: 'Direktur Utama', image: '/structure/ceo.jpg' };
-
-const team = [
-  { name: 'Direktur Teknik', image: '/structure/cto.jpg' },
-  { name: 'Direktur Operasional', image: '/structure/coo.jpg' },
-  { name: 'Direktur Keuangan', image: '/structure/cfo.jpg' },
-  { name: 'Manajer Pemasaran', image: '/structure/cmo.jpg' },
-  { name: 'Manajer TI', image: '/structure/cio.jpg' },
-];
+import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
+import logo from "../assets/struktur.png"
 
 export default function Structure() {
+  const [zoom, setZoom] = useState(1);
+  const constraintsRef = useRef(null);
+
+  const handleZoomIn = () => setZoom((z) => Math.min(z + 0.2, 2));
+  const handleZoomOut = () => setZoom((z) => Math.max(z - 0.2, 0.6));
+  const handleReset = () => setZoom(1);
+
   return (
     <motion.section
       id="structure"
-      className="py-16 bg-gradient-to-b from-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden"
+      className="py-16 bg-gradient-to-b from-white dark:from-gray-900 dark:to-gray-800"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -27,10 +26,9 @@ export default function Structure() {
         <meta name="description" content="Struktur Organisasi Perumdam Tirta Jaya Kabupaten Pamekasan - Pelayanan adalah motivasi kami untuk terus maju dan berubah." />
       </Helmet>
 
-      <div className="container mx-auto px-6 pt-10 relative">
-        {/* Judul */}
+      <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16"
+          className="text-3xl font-bold text-center mb-10 pt-10 text-gray-900 dark:text-white"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -38,62 +36,50 @@ export default function Structure() {
           Struktur Organisasi
         </motion.h2>
 
-        {/* Leader Section */}
-        <div className="flex flex-col items-center relative z-10">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center"
+        {/* Tombol Kontrol Zoom */}
+        <div className="flex justify-center gap-4 mb-6 flex-wrap">
+          <button
+            onClick={handleZoomOut}
+            className="flex items-center px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition"
           >
-            <img
-              src={leader.image}
-              alt={leader.name}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-blue-500 dark:border-blue-400 object-cover mb-4 shadow-xl"
-            />
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white">{leader.name}</h3>
-          </motion.div>
-
-          {/* Animated Vertical Line */}
-          <motion.div
-            className="w-1 bg-blue-500 dark:bg-blue-400 mt-6"
-            initial={{ height: 0 }}
-            animate={{ height: '80px' }}
-            transition={{ duration: 1 }}
-          />
+            <ZoomOut className="w-5 h-5 mr-1" /> Zoom Out
+          </button>
+          <button
+            onClick={handleZoomIn}
+            className="flex items-center px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+          >
+            <ZoomIn className="w-5 h-5 mr-1" /> Zoom In
+          </button>
+          <button
+            onClick={handleReset}
+            className="flex items-center px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+          >
+            <RotateCcw className="w-5 h-5 mr-1" /> Reset Zoom
+          </button>
         </div>
 
-        {/* Team Section */}
-        <div className="relative mt-12">
-          {/* Animated Horizontal Line */}
-          <motion.div
-            className="absolute top-1/2 left-0 right-0 flex justify-center"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1 }}
-            style={{ transformOrigin: 'center' }}
-          >
-            <div className="w-11/12 h-1 bg-blue-500 dark:bg-blue-400"></div>
-          </motion.div>
-
-          {/* Team Grid */}
-          <div className="relative grid grid-cols-2 md:grid-cols-3 gap-12 justify-items-center mt-12 z-10">
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center transform  relative"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.2, duration: 0.8 }}
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-2 border-blue-400"
-                />
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-white">{member.name}</h4>
-              </motion.div>
-            ))}
+        {/* Gambar Drag + Zoom */}
+        <div
+          ref={constraintsRef}
+          className="relative w-full h-[500px] md:h-[700px] overflow-hidden border border-gray-300 dark:border-gray-700 rounded-lg"
+        >
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <motion.div
+              drag
+              dragConstraints={constraintsRef}
+              dragElastic={0.2}
+              animate={{ scale: zoom }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="cursor-grab active:cursor-grabbing w-max h-max"
+              style={{ transformOrigin: 'center center' }}
+            >
+              <img
+                src={logo}
+                alt="Struktur Organisasi"
+                className="select-none pointer-events-none"
+                draggable={false}
+              />
+            </motion.div>
           </div>
         </div>
       </div>
