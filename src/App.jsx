@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
 import FAQ from './components/FAQ';
+import KebijakanPrivasi from './components/KebijakanPrivasi';
 
 
 function AnimatedRoutes() {
@@ -24,12 +25,13 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vision-mission" element={<VisionMission />} />
-        <Route path="/structure" element={<Structure />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/faq" element={<FAQ />} />
+        <Route path="/tentang-kami" element={<About />} />
+        <Route path="/visi-misi" element={<VisionMission />} />
+        <Route path="/struktur" element={<Structure />} />
+        <Route path="/galeri" element={<Gallery />} />
+        <Route path="/kontak-kami" element={<Contact />} />
+        <Route path="/frequently-asked-question" element={<FAQ />} />
+        <Route path="/kebijakan-privasi" element={<KebijakanPrivasi />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

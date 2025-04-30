@@ -29,9 +29,9 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex flex-wrap justify-center space-x-6 mb-6 text-sm font-medium">
-          <a href="/contact" className="hover:text-blue-500 transition">Kebijakan Privasi</a>
-          <a href="/faq" className="hover:text-blue-500 transition">FAQ</a>
-          <a href="/contact" className="hover:text-blue-500 transition">Kontak Kami</a>
+          <a href="/kebijakan-privasi" className="hover:text-blue-500 transition">Kebijakan Privasi</a>
+          <a href="/frequently-asked-question" className="hover:text-blue-500 transition">FAQ</a>
+          <a href="/kontak-kami" className="hover:text-blue-500 transition">Kontak Kami</a>
         </div>
 
         {/* Copyright */}

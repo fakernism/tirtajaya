@@ -75,11 +75,11 @@ function NavLinks() {
   const location = useLocation();
   const links = [
     { to: '/', label: 'Beranda' },
-    { to: '/about', label: 'Tentang Kami' },
-    { to: '/vision-mission', label: 'Visi dan Misi' },
-    { to: '/structure', label: 'Struktur Organisasi' },
-    { to: '/gallery', label: 'Galeri' },
-    { to: '/contact', label: 'Kontak' },
+    { to: '/tentang-kami', label: 'Tentang Kami' },
+    { to: '/visi-misi', label: 'Visi dan Misi' },
+    { to: '/struktur', label: 'Struktur Organisasi' },
+    { to: '/galeri', label: 'Galeri' },
+    { to: '/kontak-kami', label: 'Kontak' },
   ];
 
   return (

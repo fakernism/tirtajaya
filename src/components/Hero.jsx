@@ -11,7 +11,7 @@ export default function Hero() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/contact');
+    navigate('/kontak-kami');
   };
 
   return (
