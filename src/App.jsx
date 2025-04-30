@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
 import FAQ from './components/FAQ';
 import KebijakanPrivasi from './components/KebijakanPrivasi';
+import BeritaPengumuman from './components/BeritaPengumuman';
 
 
 function AnimatedRoutes() {
@@ -32,6 +33,7 @@ function AnimatedRoutes() {
         <Route path="/kontak-kami" element={<Contact />} />
         <Route path="/frequently-asked-question" element={<FAQ />} />
         <Route path="/kebijakan-privasi" element={<KebijakanPrivasi />} />
+        <Route path="/berita-pengumuman" element={<BeritaPengumuman />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
