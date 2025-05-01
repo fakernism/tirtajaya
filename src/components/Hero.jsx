@@ -46,7 +46,8 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-4 pt-40 md:pt-52 pb-24 flex flex-col items-center text-center space-y-6">
+      {/* Content Section */}
+        <div className="relative z-10 px-4 pt-32 md:pt-52 pb-16 md:pb-24 flex flex-col items-center text-center space-y-6">
         <p className="text-blue-400 font-semibold tracking-wide text-sm md:text-base uppercase">Pelayanan Air Terpercaya</p>
         <h1 className="text-white font-extrabold text-4xl md:text-6xl leading-tight drop-shadow">
           <TypeAnimation
@@ -73,7 +74,7 @@ export default function Hero() {
 
       {/* Feature Section */}
       <motion.div
-        className="relative z-10 mt-16 md:mt-24 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
+        className="relative z-10 md:mt-24 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 1 }}
